@@ -14,6 +14,8 @@ public class Main {
         // Initializing Variables
         int x, y, primeCheck;
 
+
+        // This next block will create the primes
         // Creating initial header
         System.out.println("All prime numbers between 1 and " + prime + " are: ");
 
@@ -40,6 +42,16 @@ public class Main {
                 System.out.print(x + " ");
             }
         }
+    } // primeNumbers End
+
+    public static void decoderMethod (String[] method) {
+        String[] encodedCharacters = {"A", "b", "H", "e", "d", "i", ";", "s", "l",
+                "d", "3", "R", "d", "i", "6", "s", "d", "s", "h", "e", "g", "3", "s", "n",
+                "&", "3", "3", "d", "2", "!", "a"};
+
+             for (String character : encodedCharacters) {
+
+             }
     }
 
     public static void main(String[] args) {
@@ -55,9 +67,6 @@ public class Main {
 
         //Executing method to display prime numbers
         primeNumbers(primeCap);
-
-
-
 
     }
 }
