@@ -35,8 +35,10 @@ public class Main {
         System.out.printf("%s%n%s%n", "CIA REPORT ON INTERCEPTED DATA:", "DATA INTERCEPTED: ");
         System.out.printf("%5s%8s%n", "Index", "Value");
         for (int count = 0; count < encodedMessage.length(); count++) {
-            System.out.printf("%5d%8s%n", count, encodedMessage.charAt(count), "\n");
+            System.out.printf("%5d%8s%n", count, encodedMessage.charAt(count));
         }
+
+        System.out.println();
 
         // Initializing prime cap
         int primeCap = 100;
@@ -44,23 +46,25 @@ public class Main {
         //Executing method to display prime numbers
         primeNumbersClass.primeNumbers(primeCap);
 
-        System.out.printf("%n%n%s%n", "Decoded Message: ");
-        for ( int i =2; i < lengthOfEncodedMessage; i++ ) {
-            for (int j = 2; j < i; j++ ) {
+        // Find prime indices and add them to appendedMessage
+        for (int i = 2; i < encodedMessage.length(); i++) {
+            boolean isPrime = true;
+            for (int j = 2; j < i; j++) {
                 if (i % j == 0) {
+                    isPrime = false;
                     break;
                 }
-            else {
+            }
+            if (isPrime) {
                 appendedMessage.add(i);
-                }
             }
         }
 
+        // Add characters at prime indices to decodedMessage
+        System.out.printf("%n%n%s%n", "Decoded Message: ");
         for (int x : appendedMessage) {
             decodedMessage.append(encodedMessage.charAt(x));
         }
-
         System.out.println(decodedMessage);
-
     }
 }
